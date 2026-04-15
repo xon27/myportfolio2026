@@ -1,0 +1,23 @@
+{
+  "name": "Dixon Carnacete — Portfolio",
+  "short_name": "Dixon",
+  "description": "UI/UX design, front-end development, and automation—portfolio of Dixon Carnacete.",
+  "start_url": "../index.html",
+  "display": "browser",
+  "background_color": "#101a20",
+  "theme_color": "#101a20",
+  "icons": [
+    {
+      "src": "img/android-chrome-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/android-chrome-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
