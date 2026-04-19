@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Dixon Carnacete — UI/UX Designer &amp; Web Developer</title>
-  <meta name="description" content="Portfolio of Dixon Carnacete: UI/UX design, front-end development, and automation—focused on clear interfaces and systems that scale with your team.">
+  <title>Portfolio — Dixon Carnacete</title>
+  <meta name="description" content="Selected work by Dixon Carnacete: UI/UX, web, strategy, and technology projects—case studies and deliverables.">
   <meta name="author" content="Dixon Carnacete">
 
   <meta name="theme-color" content="#101a20">
@@ -18,16 +18,6 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-192.png?v=2">
   <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512.png?v=2">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png?v=2">
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Dixon Carnacete — UI/UX Designer &amp; Web Developer">
-  <meta property="og:description" content="Portfolio of Dixon Carnacete: UI/UX design, front-end development, and automation—focused on clear interfaces and systems that scale.">
-  <meta property="og:url" content="https://dixonportfolio.com/">
-  <meta property="og:image" content="https://dixonportfolio.com/assets/img/profile/myprofile.jpeg">
-  <meta property="og:locale" content="en_US">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dixon Carnacete — UI/UX Designer &amp; Web Developer">
-  <meta name="twitter:description" content="Portfolio: UI/UX design, front-end development, and automation.">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -53,7 +43,7 @@
   ======================================================== -->
 </head>
 
-<body class="index-page">
+<body class="portfolio-page">
 
   <header id="header" class="header d-flex align-items-center light-background sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
@@ -65,10 +55,10 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="home.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="resume.html">Resume</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="mywork.html" class="active">My Work</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -86,55 +76,96 @@
 
   <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Portfolio</h2>
+        <p>A sample of engagements across strategy, finance, operations, and technology—each filtered so you can browse by focus area.</p>
+      </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4 align-items-center">
-          <div class="col-lg-6 order-2 order-lg-1">
-            <div class="hero-content">
-              <h1 data-aos="fade-up" data-aos-delay="200">Hello, I'm <span class="highlight">Dixon Carnacete</span></h1>
-              <h2 data-aos="fade-up" data-aos-delay="300">Creative <span class="typed" data-typed-items="UI/UX Designer, Web Developer"></span></h2>
-              <p data-aos="fade-up" data-aos-delay="400">I build interfaces and systems that help teams work smarter—clear UX, solid structure, and tools that scale.</p>
-              <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
-                <a href="portfolio.html" class="btn btn-primary">View My Work</a>
-                <a href="contact.html" class="btn btn-outline">Get In Touch</a>
-              </div>
-              <div class="social-links" data-aos="fade-up" data-aos-delay="600">
-                <a href="#" aria-label="X (Twitter)" rel="noopener noreferrer"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
-                <a href="#" aria-label="LinkedIn" rel="noopener noreferrer"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
-                <a href="#" aria-label="GitHub" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Behance" rel="noopener noreferrer"><i class="bi bi-behance" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2">
-            <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
-              <div class="image-wrapper">
-                <img src="assets/img/profile/myprofile.jpeg" alt="Dixon Carnacete — UI/UX designer and web developer" class="img-fluid" loading="eager" fetchpriority="high">
-                <div class="floating-elements">
-                  <div class="floating-card design" data-aos="fade-left" data-aos-delay="700">
-                    <i class="bi bi-palette"></i>
-                    <span>Design</span>
+        <!-- <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-strategy">Strategy</li>
+            <li data-filter=".filter-finance">Finance</li>
+            <li data-filter=".filter-operations">Operations</li>
+            <li data-filter=".filter-technology">Technology</li>
+          </ul>End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-strategy">
+              <div class="portfolio-card">
+                <div class="portfolio-img">
+                  <img src="assets/img/work/Olm.png" alt="Portfolio Item" class="img-fluid">
+                  <div class="portfolio-overlay">                    
+                    <a href="https://xon27.github.io/olm/" class="portfolio-details-link"><i class="bi bi-github"></i></a>
                   </div>
-                  <div class="floating-card code" data-aos="fade-right" data-aos-delay="800">
-                    <i class="bi bi-code-slash"></i>
-                    <span>Code</span>
-                  </div>
-                  <div class="floating-card creativity" data-aos="fade-up" data-aos-delay="900">
-                    <i class="bi bi-lightbulb"></i>
-                    <span>Ideas</span>
+                </div>
+                <div class="portfolio-info">
+                  <h4>OLM</h4>
+                  <p>Strategic Planning</p>
+                  <div class="portfolio-tags">
+                    <span>React</span>
+                    <span>Consulting</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-finance">
+              <div class="portfolio-card">
+                <div class="portfolio-img">
+                  <img src="assets/img/work/birthday invitation.png" alt="Portfolio Item" class="img-fluid">
+                  <div class="portfolio-overlay">
+                    <a href="https://xon27.github.io/birthday-invitation/" class="portfolio-details-link"><i class="bi bi-github"></i></a>
+                  </div>
+                </div>
+                <div class="portfolio-info">
+                  <h4>Financial Restructuring</h4>
+                  <p>Financial Advisory</p>
+                  <div class="portfolio-tags">
+                    <span>Finance</span>
+                    <span>Investment</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-operations">
+              <div class="portfolio-card">
+                <div class="portfolio-img">
+                  <img src="assets/img/work/wed invitation.png" alt="Portfolio Item" class="img-fluid">
+                  <div class="portfolio-overlay">
+                    <a href="https://xon27.github.io/digital-wedding-invitation/" class="portfolio-details-link"><i class="bi bi-github"></i></a>
+                  </div>
+                </div>
+                <div class="portfolio-info">
+                  <h4>Supply Chain Optimization</h4>
+                  <p>Operations Management</p>
+                  <div class="portfolio-tags">
+                    <span>Operations</span>
+                    <span>Logistics</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+          </div><!-- End Portfolio Items Container -->
+
+        </div>
+
+        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+          <a href="#portfolio" class="btn btn-primary">View All Case Studies</a>
         </div>
 
       </div>
 
-    </section><!-- /Hero Section -->
+    </section><!-- /Portfolio Section -->
 
   </main>
 

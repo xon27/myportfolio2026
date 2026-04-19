@@ -1,42 +1,64 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+declare(strict_types=1);
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+header('Content-Type: text/plain; charset=utf-8');
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+    http_response_code(405);
+    echo 'Method not allowed';
+    exit;
+}
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+if (($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') !== 'XMLHttpRequest') {
+    http_response_code(403);
+    echo 'Invalid request';
+    exit;
+}
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+$name = trim((string)($_POST['name'] ?? ''));
+$email = trim((string)($_POST['email'] ?? ''));
+$subject = trim((string)($_POST['subject'] ?? ''));
+$message = trim((string)($_POST['message'] ?? ''));
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  isset($_POST['phone']) && $contact->add_message($_POST['phone'], 'Phone');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+if ($name === '' || $email === '' || $subject === '' || $message === '') {
+    http_response_code(400);
+    echo 'All fields are required.';
+    exit;
+}
 
-  echo $contact->send();
-?>
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo 'Invalid email address.';
+    exit;
+}
+
+// Block header injection in subject / display fields
+$stripCrlf = static function (string $s): string {
+    return str_replace(["\r", "\n", '%0a', '%0d', '%0A', '%0D'], '', $s);
+};
+$subject = $stripCrlf($subject);
+$name = $stripCrlf($name);
+
+$to = 'dixoncarnacete13@gmail.com'; // TODO: your inbox
+$mailSubject = 'Site contact: ' . $subject;
+
+$body = "Name: {$name}\r\n";
+$body .= "Email: {$email}\r\n\r\n";
+$body .= $message;
+
+// Use an address on YOUR domain for From (helps deliverability)
+$fromAddress = 'noreply@yourdomain.com'; // TODO: mailbox or no-reply on your site domain
+
+$headers = [];
+$headers[] = 'MIME-Version: 1.0';
+$headers[] = 'Content-Type: text/plain; charset=utf-8';
+$headers[] = 'From: ' . $fromAddress;
+$headers[] = 'Reply-To: ' . $email;
+
+if (mail($to, $mailSubject, $body, implode("\r\n", $headers))) {
+    echo 'OK';
+    exit;
+}
+
+http_response_code(500);
+echo 'Mail could not be sent. Ask your host to enable mail() or use SMTP below.';
