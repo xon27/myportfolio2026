@@ -131,7 +131,12 @@
       handler: function(direction) {
         let progress = item.querySelectorAll('.progress .progress-bar');
         progress.forEach(el => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%';
+          let pct = el.getAttribute('aria-valuenow');
+          el.style.width = pct + '%';
+          let label = el.closest('.skill-item')?.querySelector('.skill-percent');
+          if (label && pct !== null) {
+            label.textContent = pct + '%';
+          }
         });
       }
     });
